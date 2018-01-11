@@ -21,7 +21,7 @@ public class ComparableCows2 extends Cow {
 		// TODO Auto-generated method stub
 		String name = "";
 		for(Cow cow : cows) {
-			name += ", " + cow.getName();
+			name += cow.getName() + ", ";
 		}
 		System.out.println(name);
 	}
