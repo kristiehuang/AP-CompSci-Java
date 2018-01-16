@@ -17,5 +17,7 @@ public class Branch {
 	
 	public double torque() {
 		// You write this
+		double torq = this.length * struct.getWeight();
+		return torq;
 	}
 }

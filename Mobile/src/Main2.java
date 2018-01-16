@@ -17,6 +17,7 @@ public class Main2 {
 		Mobile m2 = new Mobile(b3,b4);
 		Branch b1 = new Branch(6, m2);
 		Branch b2 = new Branch(6, m3);
+		
 		Mobile m1 = new Mobile(b1, b2);
 		
 		System.out.println(m1.getWeight());
