@@ -28,7 +28,7 @@ public class Mobile implements Structure {
 	public boolean isBalanced() {
 		boolean bal = false;
 		// TODO Auto-generated method stub
-		if (left.torque() == right.torque()) {
+		if ((left.torque() == right.torque()) && (left.getStructure().isBalanced()) && (right.getStructure().isBalanced())) {
 			bal = true;
 		}
 		return bal;
