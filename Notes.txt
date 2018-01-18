@@ -1,0 +1,9 @@
+
+
+extends = IS A class
+implements = HAS AN interface
+
+
+all variables in interfaces are 
+public static final
+- you dont have to put them but they ALL are
