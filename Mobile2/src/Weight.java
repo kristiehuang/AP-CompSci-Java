@@ -8,11 +8,8 @@ public class Weight extends Structure {
     // real objects instead of treating them solely as numbers.
     // 
     // You have to figure out how to handle it
-	
-	
-	public double weight; //INSTANCE VARIALBES SHOULD ALWAYS BE PRIVATE;; CHANGE TO PRIVATE??
-	
+
     public Weight(double weight) {
-    		this.weight = weight;
+    		super(weight);
     }
 }
