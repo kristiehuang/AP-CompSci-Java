@@ -254,4 +254,6 @@ public class Location implements Comparable
     {
         return "(" + getRow() + ", " + getCol() + ")";
     }
+
+
 }

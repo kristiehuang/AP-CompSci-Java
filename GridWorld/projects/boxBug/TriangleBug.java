@@ -1,0 +1,82 @@
+/* 
+ * AP(r) Computer Science GridWorld Case Study:
+ * Copyright(c) 2005-2006 Cay S. Horstmann (http://horstmann.com)
+ *
+ * This code is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation.
+ *
+ * This code is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * @author Cay Horstmann
+ * @author Chris Nevison
+ * @author Barbara Cloud Wells
+ */
+
+import info.gridworld.actor.Bug;
+
+/**
+ * A <code>BoxBug</code> traces out a square "box" of a given size. <br />
+ * The implementation of this class is testable on the AP CS A and AB exams.
+ */
+public class TriangleBug extends Bug
+{
+	private int steps;
+	private int baseSteps;
+	private int side;
+
+	/**
+	 * Constructs a box bug that traces a square of a given side length
+	 * @param length the side length
+	 */
+	public TriangleBug(int length)
+	{
+		steps = 0;
+		baseSteps = length;
+		side = 1;
+		//turn 6 times to face west
+	}
+
+	/**
+	 * Moves to the next location of the square.
+	 */
+	public void act()
+	{
+		if (side == 1 && steps < baseSteps && canMove())
+		{
+
+			//
+			System.out.println("fsfakd");
+			move(); 
+			steps++;
+		}
+		else if ((side == 2 || side == 3) && steps < (baseSteps / 2) && canMove())
+		{
+
+			move();
+			steps++;
+			System.out.println("2 step 3 steps");
+		}
+
+		else
+		{
+			side++;
+			System.out.println("else");
+			System.out.println(side);
+			turn();
+			turn();
+			if (side != 3) {
+				turn();
+				System.out.println("TURN GODDAMNIT");
+			}
+			steps = 0;
+
+			if (side == 4) { 
+				side = 1; 
+			}
+		}
+	}
+}
