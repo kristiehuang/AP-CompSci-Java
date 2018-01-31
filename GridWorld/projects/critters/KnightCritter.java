@@ -69,23 +69,20 @@ public class KnightCritter extends Critter
 		Location currentLoc = getLocation();
 
 		for(int i = Location.NORTH; i < Location.FULL_CIRCLE; i += Location.RIGHT) {
-			Location[] diags = new Location[1];
 
 			Location newLoc = currentLoc.getAdjacentLocation(i);
 
 			//(state == 1 ? 2 : 3)   if state == 1, return 2. else return 3
 
-			
-			//!!!!IF LOCATION IS IN GRID
-			if (getGrid().isValid(newLoc.getAdjacentLocation(Location.HALF_LEFT))) {
 
-				diags[0] = newLoc.getAdjacentLocation(Location.HALF_LEFT);
-				locs.add(diags[0]);
+			if (getGrid().isValid(newLoc.getAdjacentLocation(Location.HALF_LEFT))) {
+				Location left = newLoc.getAdjacentLocation(Location.HALF_LEFT);
+				locs.add(left);
 			}
 			if (getGrid().isValid(newLoc.getAdjacentLocation(Location.HALF_RIGHT))) {
+				Location right = newLoc.getAdjacentLocation(Location.HALF_RIGHT);
+				locs.add(right);
 				System.out.println("hello");
-				//diags[1] = newLoc.getAdjacentLocation(Location.HALF_RIGHT);
-				//locs.add(diags[1]);
 			}
 
 		}
@@ -99,44 +96,6 @@ public class KnightCritter extends Critter
 		System.out.println("movable locations" + emptyLocations);
 		return emptyLocations;
 
-
-		//		ArrayList<Location> locs = new ArrayList<Location>();
-		//		ArrayList<Location> emptyLocations = new ArrayList<Location>();
-		//
-		//		int[] allLocations = new int[1];
-		//
-		//		int[] initialDirs =
-		//			{ 
-		//					Location.NORTH,
-		//					Location.SOUTH,
-		//					Location.EAST,
-		//					Location.WEST 
-		//			};
-		//
-		//		int[] leftRight =
-		//			{ 
-		//					Location.getLeft(),
-		//					Location.RIGHT
-		//			};
-		//
-		//		int[] dirs = {};
-		//
-		//		for (int dir : initialDirs) {
-		//			dirs.add(getLocationsInDirections(dirs).dir);
-		//		}
-		//		//array list of all locations
-		//		for (Location loc : getLocationsInDirections(dirs)) {
-		//			allLocations[0] = loc.LEFT;
-		//			allLocations[1] = loc.RIGHT;
-		//		}
-		//
-		//		//empty loctaions
-		//		for (Location loc : getLocationsInDirections(allLocations)) {
-		//			if (getGrid().get(loc) == null)
-		//				emptyLocations.add(loc);
-		//		}
-		//
-		//		return emptyLocations;
 	}
 
 	/**
@@ -148,10 +107,12 @@ public class KnightCritter extends Critter
 		{
 			double r = Math.random();
 			int angle;
-			if (r < 0.5)
+			if (r < 0.5) {
 				angle = Location.LEFT;
-			else
+			}
+			else {
 				angle = Location.RIGHT;
+			}
 			setDirection(getDirection() + angle);
 		}
 		else
