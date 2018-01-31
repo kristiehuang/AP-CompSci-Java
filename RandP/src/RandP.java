@@ -32,8 +32,6 @@ public class RandP {
 		numsLeft -= 1;
 		System.out.println(randomNum);
 		return randomNum;
-
 	}
-
 
 }
