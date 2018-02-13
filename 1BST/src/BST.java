@@ -45,26 +45,32 @@ public class BST<T extends Comparable<T>> {
 		else { rightDepth = getRight().depth(); }
 
 		int depth = 1 + (leftDepth > rightDepth ? leftDepth : rightDepth);
-		System.out.println("depth is" + depth);
 
 		return depth;
 	}
 	public void insert(T datum) {
-		//YOUR_CODE_HERE
 		if (datum.compareTo(getDatum()) > 0) {
-			right.insert(datum); 
+			if (right == null) {
+				setRight(datum);
+			}
+			else {
+				right.insert(datum);  }
 		}
 		else if (datum.compareTo(getDatum()) < 0) {
-			left.insert(datum); }
+			if (left == null) {
+				setLeft(datum);
+			}
+			else {
+				left.insert(datum);  }
+		}
 		else {
-			this.datum = datum;
+			System.out.println("this already exists");;
 		}
 
 	}
 
-	//printTree, using infix (inorder) notation
 
-	//EXTRA CREDIDTTTT
+	//EXTRA CREDIT
 	public void delete(T datum) {
 		//YOUR_CODE_HERE
 		// find datum in the binary search tree; if found, delete node,
@@ -79,5 +85,8 @@ public class BST<T extends Comparable<T>> {
 		if (right != null)
 			s = s + right.toString();
 		return s;
+
+
+
 	}
 }
