@@ -4,18 +4,31 @@ public class Sorts {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		int[] array = new int[5];
-		array[0] = 5;
-		array[1] = 4;
-		array[2] = 1;
-		array[3] = 3;
-		array[4] = 2;
+		int[] array1 = new int[5];
+		array1[0] = 4;
+		array1[1] = 5;
+		array1[2] = 1;
+		array1[3] = 3;
+		array1[4] = 2;
 
+		int[] array2 = new int[5];
+		array2[0] = 4;
+		array2[1] = 5;
+		array2[2] = 1;
+		array2[3] = 3;
+		array2[4] = 2;
+
+		int[] array3 = new int[5];
+		array3[0] = 4;
+		array3[1] = 5;
+		array3[2] = 1;
+		array3[3] = 3;
+		array3[4] = 2;
 		//fill array w numbers
 
-		bubbleSort(array);
-		insertSort(array);
-		selectionSort(array);
+		bubbleSort(array1);
+		insertSort(array2);
+		selectionSort(array3);
 
 	}
 
@@ -42,11 +55,9 @@ public class Sorts {
 						}
 					}
 				}
-				//toPrint(arr);
 			}
-
 		}
-		
+
 		System.out.println("bubble");
 		toPrint(arr);
 
@@ -55,27 +66,62 @@ public class Sorts {
 
 	public static int[] insertSort(int[] arr) { //set first item to Sorted. then,, new first item, compare w/ sorted. swap/insert into correct place in Sorted array
 
+		if (arr != null) {
+			for(int a = 0; a < arr.length; a++) {
+				int toSort = arr[a];
 
-		//		if (arr[nexttt] == null) {
-		//			return arr;
-		//		}
-		//		else {
-		//			int first = arr[0];
-		//			arr[0] = arr[1];
-		//			arr[1] = first;
-		//
-		//			insertSort(arr minus first one);
-		//		}
+				for(int i = a; i > 0; i--) {
+					int nextInt = arr[i - 1];
+					if (nextInt > toSort) {
+						arr[i - 1] = toSort;
+						arr[i] = nextInt;
+					}
+				}
+			}
+		}
+
+		System.out.println("insertion");
+		toPrint(arr);
 
 		return arr;
 	}
 
 
 	public static int[] selectionSort(int[] arr) { //iterate to find and store the shortest, then swap with first
-		int shortest = 0;
+
+		if (arr != null) {
+			for(int a = 0; a < arr.length; a++) {
+				int thisInt = arr[a];
+
+				int swapPosition = 0;
+				System.out.println("a" + a);
+
+				//a = 3
+				//i = 4
+				//fix this DOES THE I FOR LOOP RUN AT ALL
+
+				for(int i = a + 1; i < arr.length; i++) {
+					int nextInt = arr[i];
+
+					if (thisInt > nextInt) {
+
+						thisInt = nextInt;
+						System.out.println("i" + i);
+						swapPosition = i;
+					}           
+				}
+				
+
+				arr[swapPosition] = arr[a];
+				arr[a] = thisInt;
+			}
+		}
+
+		System.out.println("selection");
+		toPrint(arr);
 
 		return arr;
-
+		
 	}
 
 
