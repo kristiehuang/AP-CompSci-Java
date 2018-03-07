@@ -16,6 +16,10 @@ public class Main {
 		}
 		
 		System.out.println("depth is " + bsti.depth());
+		
+		bsti.isBalanced();
+		
+		
 
 	}
 

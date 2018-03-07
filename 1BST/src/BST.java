@@ -77,6 +77,24 @@ public class BST<T extends Comparable<T>> {
 		// but remember, this must remain a BST after deletion
 	}
 
+	
+	public boolean isBalanced() {
+		
+		int ld;
+		int rd;
+		if (left == null) { ld = 0; }
+		else { ld = left.depth(); }
+		
+		if (right == null) { rd = 0; }
+		else { rd = right.depth(); }
+		
+		boolean balanced = ((Math.abs(ld - rd) == 1) &&
+				(left.isBalanced() || left == null) &&
+				(right.isBalanced() || right == null));
+
+		System.out.println("balanced?" + balanced);
+		return balanced;
+	}
 
 	public String toString() {
 		String s = "" + datum + ", ";
@@ -85,8 +103,5 @@ public class BST<T extends Comparable<T>> {
 		if (right != null)
 			s = s + right.toString();
 		return s;
-
-
-
 	}
 }
