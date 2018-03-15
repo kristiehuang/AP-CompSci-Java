@@ -2,13 +2,11 @@
 public class Sorts {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		
 		int[] array1 = { 2, 32, 91, 4 };
 		int[] array2 = { 2, 32, 91, 4 };
 		int[] array3 = { 3, 5, 2, 4 };
 		int[] array4 = { 3, 6, 1, 4, 2, 10, 7, 9, 8, 5 };
-
 
 		bubbleSort(array1);
 		insertSort(array2);
@@ -89,6 +87,7 @@ public class Sorts {
 	}
 
 
+	//HEAP SORT IS BROKEN FOR NOW
 	public static int[] heapSort(int[] arr) {
 
 		//arr is permanent place in memory so u can just modify it!!
