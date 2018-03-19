@@ -1,25 +1,33 @@
 
 public class Median {
 	public static void main(String[] args) {
-		int[] array = { 3, 6, 9, 7, 8, 5 };
+		int[] array = { 1, 13 };
 
 		//fill array w numbers
 
 		median(array);
 	}
-	
-	
+
+
 	public static double median(int[] a) {
-		double sorted = medianQuick(a, 0, a.length - 1);
-		System.out.println(sorted);
-		return sorted;
+		if (a.length > 1) {
+			double sorted = medianQuick(a, 0, a.length - 1);
+			System.out.println(sorted);
+			return sorted;
+		}
+		else {
+			System.out.println(a[0]);
+			return a[0];
+		}
+
 	}
-	
+
 	public static double medianQuick(int[] a, int left, int right) {
 		int pivotPos = partition2(a, left, right);
 		int middle = a.length/2;
+		
 		if (right > left){
-			if (a.length % 2 == 1){
+			if (a.length % 2 == 1){ //odd
 				if (pivotPos == middle){
 					return (a[middle]);
 				} else {
@@ -44,8 +52,12 @@ public class Median {
 					}
 				}
 			}
+
 		}
-		return a[middle];
+		
+		//if doesnt return in odd; then it must be even.
+		return (double) (a[middle] + a[middle - 1]) / 2;
+
 	}
 
 	public static int partition2(int[] a, int left, int right) {
