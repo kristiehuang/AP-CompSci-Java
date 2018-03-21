@@ -49,7 +49,7 @@ public class MergeSort {
 			sorted[0] = left[0];
 
 			for(int i = 0; i < totalLength; i++) {
-				merge (cdr l1) l2) ;
+				merge (cdr l1) l2) ; 
 			}
 			return sorted;
 		}
