@@ -1,6 +1,13 @@
+//import java.util.Scanner;
 
 public class Median {
+	
+	
 	public static void main(String[] args) {
+		
+//		Scanner in = new Scanner(System.in);
+//		System.out.println(in.nextInt());
+		
 		int[] array = { 1, 13 };
 
 		//fill array w numbers
@@ -9,6 +16,7 @@ public class Median {
 	}
 
 
+	
 	public static double median(int[] a) {
 		if (a.length > 1) {
 			double sorted = medianQuick(a, 0, a.length - 1);
