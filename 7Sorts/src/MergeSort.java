@@ -18,19 +18,25 @@ public class MergeSort {
 		return printArr;
 	}
 
+
 	public static int[] mergeSort(int[] a) {
+		int[]returnArr = ms(a);
+		toPrint(returnArr);
+		return returnArr;
+	}
+
+
+	public static int[] ms(int[] a) {
 		int[] returnArr;
 
 		if (a.length == 1) {
 			returnArr = a;
 		}
 		else {
-			returnArr = merge((mergeSort(partitionLeft(a))), (mergeSort(partitionRight(a))));
+			returnArr = merge((ms(partitionLeft(a))), (ms(partitionRight(a))));
 			//sort left; sort right; merge in sorted order
 		}
 
-		System.out.println("merge");
-		toPrint(returnArr);
 		return returnArr;
 	}
 
@@ -44,21 +50,58 @@ public class MergeSort {
 		else if (right == null) {
 			return left;
 		}
-		
+
+		//BRROOOOOKENENENN
+		//BRROOOOOKENENENN
+
+		//BRROOOOOKENENENN
+
+		//BRROOOOOKENENENN
+		//BRROOOOOKENENENN
+		//BRROOOOOKENENENN
+		//BRROOOOOKENENENN
+		//BRROOOOOKENENENN
+		//BRROOOOOKENENENN
+		//BRROOOOOKENENENN
+
 		else if (left[0] < right[0]) {
 			sorted[0] = left[0];
+			for(int i = 1; i < totalLength; i++) {
 
-			for(int i = 0; i < totalLength; i++) {
-				merge (cdr l1) l2) ; 
+				for (int l = 0; l < left.length; l++) {
+					for (int r = 0; r < right.length; r++) {
+
+						if (left[l] < right[r]) { //left smaller than right
+							sorted[i] = left[l];
+						}
+						else if (left[l] > right[r]) { 
+							sorted[i] = right[r];
+						}
+
+					}
+
+				}
 			}
 			return sorted;
 		}
 		else { //if right[0] < left[0] OR two values are same
 
 			sorted[0] = right[0];
+			for(int i = 1; i < totalLength; i++) {
 
-			for(int i = 0; i < totalLength; i++) {
-				(merge l1 (cdr l2)) ;
+				for (int l = 0; l < left.length; l++) {
+					for (int r = 0; r < right.length; r++) {
+
+						if (left[l] < right[r]) { //left smaller than right
+							sorted[i] = left[l];
+						}
+						else if (left[l] > right[r]) { 
+							sorted[i] = right[r];
+						}
+
+					}
+
+				}
 			}
 			return sorted;
 		}
@@ -81,8 +124,9 @@ public class MergeSort {
 	public static int[] partitionRight(int[] arr) {
 		int numElements = (arr.length / 2) + 1;
 		int[] rightArr = new int[numElements];
-
-		for(int i = 0; i < numElements; i++) {
+		System.out.println("num"+numElements);
+		for(int i = 0; i < numElements - 1; i++) {
+			System.out.println("i"+i);
 			rightArr[i] = arr[numElements-1 + i];
 		}
 
