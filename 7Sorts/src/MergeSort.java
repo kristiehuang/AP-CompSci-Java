@@ -44,37 +44,25 @@ public class MergeSort {
 		int totalLength = left.length + right.length;
 		int[] sorted = new int[totalLength];
 
-		if (left == null) {
+		if (left.length == 0) {
 			return right;
 		}
-		else if (right == null) {
+		else if (right.length == 0) {
 			return left;
 		}
 
-		//BRROOOOOKENENENN
-		//BRROOOOOKENENENN
-
-		//BRROOOOOKENENENN
-
-		//BRROOOOOKENENENN
-		//BRROOOOOKENENENN
-		//BRROOOOOKENENENN
-		//BRROOOOOKENENENN
-		//BRROOOOOKENENENN
-		//BRROOOOOKENENENN
-		//BRROOOOOKENENENN
-
 		else if (left[0] < right[0]) {
 			sorted[0] = left[0];
+
 			for(int i = 1; i < totalLength; i++) {
 
-				for (int l = 0; l < left.length; l++) {
+				for (int l = 1; l < left.length; l++) {
 					for (int r = 0; r < right.length; r++) {
 
 						if (left[l] < right[r]) { //left smaller than right
 							sorted[i] = left[l];
 						}
-						else if (left[l] > right[r]) { 
+						else { 
 							sorted[i] = right[r];
 						}
 
@@ -90,12 +78,12 @@ public class MergeSort {
 			for(int i = 1; i < totalLength; i++) {
 
 				for (int l = 0; l < left.length; l++) {
-					for (int r = 0; r < right.length; r++) {
+					for (int r = 1; r < right.length; r++) {
 
 						if (left[l] < right[r]) { //left smaller than right
 							sorted[i] = left[l];
 						}
-						else if (left[l] > right[r]) { 
+						else { //right smaller than left
 							sorted[i] = right[r];
 						}
 
@@ -111,7 +99,6 @@ public class MergeSort {
 	public static int[] partitionLeft(int[] arr) {
 
 		int numElements = (arr.length / 2); //IF IT ROUNDS DOWN
-		System.out.println(numElements);
 		int[] leftArr = new int[numElements];
 
 		for(int i = 0; i < numElements; i++) {
@@ -122,11 +109,15 @@ public class MergeSort {
 	}
 
 	public static int[] partitionRight(int[] arr) {
-		int numElements = (arr.length / 2) + 1;
+		int numElements;
+		if (arr.length % 2 == 1) { //odd
+			numElements = (arr.length / 2) + 1;
+		}
+		else { //even
+			numElements = arr.length / 2;
+		}
 		int[] rightArr = new int[numElements];
-		System.out.println("num"+numElements);
-		for(int i = 0; i < numElements - 1; i++) {
-			System.out.println("i"+i);
+		for(int i = 0; i < numElements; i++) {
 			rightArr[i] = arr[numElements-1 + i];
 		}
 
