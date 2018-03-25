@@ -3,10 +3,10 @@ public class Sorts {
 
 	public static void main(String[] args) {
 		
-		int[] array1 = { 2, 32, 91, 4 };
-		int[] array2 = { 2, 32, 91, 4 };
-		int[] array3 = { 3, 5, 2, 4 };
-		int[] array4 = { 2, 32, 91, 4, 6, 11 };
+		int[] array1 = { 2, 32, 91, 4, 4, 6, 11 };
+		int[] array2 = { 2, 32, 91, 4, 4, 6, 11 };
+		int[] array3 = { 2, 32, 91, 4, 4, 6, 11 };
+		int[] array4 = { 2, 32, 91, 4, 4, 6, 11 };
 		
 
 		bubbleSort(array1);
