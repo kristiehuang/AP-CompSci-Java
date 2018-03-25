@@ -6,7 +6,8 @@ public class Sorts {
 		int[] array1 = { 2, 32, 91, 4 };
 		int[] array2 = { 2, 32, 91, 4 };
 		int[] array3 = { 3, 5, 2, 4 };
-		int[] array4 = { 3, 6, 1, 4, 2, 10, 7, 9, 8, 5 };
+		int[] array4 = { 2, 32, 91, 4, 6, 11 };
+		
 
 		bubbleSort(array1);
 		insertSort(array2);
@@ -105,10 +106,13 @@ public class Sorts {
 
 	private static void buildHeap(int[] a) { //TRICKLE and sort so biggest number is at top
 
+
 		int lastIndex = a.length - 1;
 		for(int num = lastIndex; num >= 0; num--) {
 			trickle(a, num, lastIndex);
 		}
+		
+
 
 	}
 	private static void sortHeap(int[] a) { //swap biggest and last unsorted num,
@@ -122,8 +126,8 @@ public class Sorts {
 			a[num] = temp;
 
 			//very last index is sorted!! now retrickle w first to second to last index
-
-			trickle(a, num, lastIndex); //retrickle whole thing
+			lastIndex--;
+			trickle(a, 0, lastIndex); //retrickle whole thing
 		}
 
 	}
@@ -133,8 +137,8 @@ public class Sorts {
 
 		int leftChild = 2*num + 1;
 		int rightChild = 2*num + 2;
-
-		boolean leftChildExists = leftChild <= lastIndex;
+		
+		boolean leftChildExists = (leftChild <= lastIndex);
 		boolean rightChildExists = (rightChild <= lastIndex);
 
 		if (leftChildExists) { //parent DOES have children at all
@@ -142,7 +146,7 @@ public class Sorts {
 
 			if (rightChildExists) {
 
-				if ((a[leftChild] > a[rightChild]) && (num < a[leftChild])) { //left>right + num < leftchild
+				if ((a[leftChild] > a[rightChild]) && (a[num] < a[leftChild])) { //left>right + num < leftchild
 
 					int temp = a[num];
 					a[num] = a[leftChild];
@@ -150,7 +154,7 @@ public class Sorts {
 
 					trickle(a, leftChild, lastIndex); //recheck if parent has any children now
 				}
-				else if ((a[leftChild] < a[rightChild]) && (num < a[rightChild])) { //right>left + num < rightChild
+				else if ((a[leftChild] < a[rightChild]) && (a[num] < a[rightChild])) { //right>left + num < rightChild
 					int temp = a[num];
 					a[num] = a[rightChild];
 					a[rightChild] = temp;
@@ -160,7 +164,7 @@ public class Sorts {
 			}
 
 			else { //no right child. left child only.
-				if (num < a[leftChild]) { //if leftchild > num
+				if (a[num] < a[leftChild]) { //if leftchild > num
 
 					//swap num and leftchild
 					int temp = a[num];
