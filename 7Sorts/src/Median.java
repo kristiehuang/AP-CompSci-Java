@@ -8,13 +8,13 @@ public class Median {
 //		Scanner in = new Scanner(System.in);
 //		System.out.println(in.nextInt());
 		
-		int[] array = { 1, 13 };
+		int[] array = { 1, 13, 23, 2, 5, 66 };
+		//should return 13 + 5 median
 
 		//fill array w numbers
 
 		median(array);
 	}
-
 
 	
 	public static double median(int[] a) {
@@ -60,12 +60,13 @@ public class Median {
 					}
 				}
 			}
-
+			
+			else {
+				return (double) (a[middle] + a[middle - 1]) / 2;
+			}
 		}
-		
-		//if doesnt return in odd; then it must be even.
-		return (double) (a[middle] + a[middle - 1]) / 2;
-
+		else { return a[0]; }
+	
 	}
 
 	public static int partition2(int[] a, int left, int right) {
