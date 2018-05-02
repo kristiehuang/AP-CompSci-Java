@@ -7,7 +7,6 @@ public class MergeSort {
 
 		mergeSort(array);
 		
-		
 
 	}
 

@@ -61,11 +61,36 @@ public class Median {
 				}
 			}
 			
-			else {
-				return (double) (a[middle] + a[middle - 1]) / 2;
+			else { //even
+				
+				if (pivotPos == middle){
+					return (double) (a[middle] + a[middle - 1]) / 2;
+				} else {
+					if (pivotPos == middle){
+						if (middle == left){
+							return (a[left] + a[middle + 1]) / 2;
+						} else {
+							return (a[middle] + minmax(a, left, middle - 1, 1)) / 2.0;
+						}
+					}
+					if (pivotPos == middle - 1){
+						if (middle == right){
+							return (a[right] + a[middle - 1]) / 2;
+						} else {
+							return (a[middle - 1] + minmax(a, middle, a.length - 1, 0)) / 2.0;
+						}
+					}
+					if (pivotPos < middle){
+						return medianQuick(a, pivotPos + 1, right);
+					} else {
+						return medianQuick(a, left, pivotPos - 1);
+					}
+				}
+				
+				
 			}
 		}
-		else { return a[0]; }
+		else { return a[0]; } //if left > right
 	
 	}
 
